@@ -1,5 +1,7 @@
 const pokedexReducer = (state, action) => {
-    // console.log(action.type === "GET_ID" ? action.payload.idForm : "");
+    console.log({st: state, ac: action});
+    //state.region
+    
     switch(action.type) {
         case 'GET_POKEMONS':
             return{
@@ -30,12 +32,11 @@ const pokedexReducer = (state, action) => {
                 abilities: [state.abilities, action.payload],
                 loading: false,
             }
-        // case 'GET_FORMS':
-        //     return{
-        //         ...state,
-        //         forms: action.payload.forms,
-        //         loading: false,
-        //     }
+        case 'SET_REGION':
+            return{
+                ...state,
+                region: action.payload,
+            }
         // case 'GET_FORM':
         //     return{
         //         ...state,

@@ -1,24 +1,21 @@
 import axios from 'axios'
 
-let nextData = ''
+// let nextData = ''
 // function capName(name) {
 //     return name.charAt(0).toUpperCase() + name.slice(1);
 // }
-const pokedex = axios.create({
+const pokedex = axios.create()
+// export const searchPokemon = async (name) => {
+//     const response = await pokedex.get(`https://pokeapi.co/api/v2/pokemon?${name}`)    
+//     return response.data.results
     
-})
-export const searchPokemon = async (name) => {
-    const response = await pokedex.get(`https://pokeapi.co/api/v2/pokemon?${name}`)    
-    return response.data.results
-    
-}
+// }
 export const getKanto = async () => {
     const params = new URLSearchParams({
         offset: '0',
         limit: '151'
     })
     const response = await pokedex.get(`https://pokeapi.co/api/v2/pokemon-species?${params}`)
-    nextData = response.data.next
     return response.data.results
 }
 export const getJohto = async () => {
@@ -27,7 +24,6 @@ export const getJohto = async () => {
         limit: '100'
     })
     const response = await pokedex.get(`https://pokeapi.co/api/v2/pokemon-species?${params}`)
-    nextData = response.data.next
     return response.data.results
 }
 export const getHoenn = async () => {
@@ -36,7 +32,6 @@ export const getHoenn = async () => {
         limit: '135'
     })
     const response = await pokedex.get(`https://pokeapi.co/api/v2/pokemon-species?${params}`)
-    nextData = response.data.next
     return response.data.results
 }
 export const getSinnoh = async () => {
@@ -45,7 +40,6 @@ export const getSinnoh = async () => {
         limit: '107'
     })
     const response = await pokedex.get(`https://pokeapi.co/api/v2/pokemon-species?${params}`)
-    nextData = response.data.next
     return response.data.results
 }
 export const getUnova = async () => {
@@ -54,7 +48,6 @@ export const getUnova = async () => {
         limit: '156'
     })
     const response = await pokedex.get(`https://pokeapi.co/api/v2/pokemon-species?${params}`)
-    nextData = response.data.next
     return response.data.results
 }
 export const getKalos = async () => {
@@ -63,7 +56,6 @@ export const getKalos = async () => {
         limit: '72'
     })
     const response = await pokedex.get(`https://pokeapi.co/api/v2/pokemon-species?${params}`)
-    nextData = response.data.next
     return response.data.results
 }
 export const getAlola = async () => {
@@ -72,7 +64,6 @@ export const getAlola = async () => {
         limit: '88'
     })
     const response = await pokedex.get(`https://pokeapi.co/api/v2/pokemon-species?${params}`)
-    nextData = response.data.next
     return response.data.results
 }
 export const getGalar = async () => {
@@ -81,17 +72,15 @@ export const getGalar = async () => {
         limit: '89'
     })
     const response = await pokedex.get(`https://pokeapi.co/api/v2/pokemon-species?${params}`)
-    nextData = response.data.next
     return response.data.results
 }
-export const getMore = async () => {
-    const response = await pokedex.get(nextData)
-    nextData = response.data.next
-    return response.data.results
-}
-export const showPokemon = async (entry) => {
-    const pokemon = await pokedex.get(`https://pokeapi.co/api/v2/pokemon/${entry}`)
-    // pokemon.data.name = capName(pokemon.data.name)
-    return {pokemon: pokemon.data}
-}
+// export const getMore = async () => {
+//     const response = await pokedex.get(nextData)
+// //     return response.data.results
+// }
+// export const showPokemon = async (entry) => {
+//     const pokemon = await pokedex.get(`https://pokeapi.co/api/v2/pokemon/${entry}`)
+//     // pokemon.data.name = capName(pokemon.data.name)
+//     return {pokemon: pokemon.data}
+// }
 

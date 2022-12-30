@@ -12,21 +12,22 @@ export const PokedexContext = createContext(getKanto);
 export const PokedexProvider = ({children}: PokedexContextProviderProps) => {
     const initialState = {
         pokemons: [],
-        pokemon:{},
-        abilities: [],
+        // pokemon:{},
+        // abilities: [],
         loading: false,
+        region: Number,
 
     }
     console.log('hii');
     
-    useEffect(() => {
-        const getPokemon = async () => {
-          dispatch({type: 'SET_LOADING'})
-          const pokemons = await getKanto()
-          dispatch({type: 'GET_POKEMONS', payload: pokemons})
-        }
-        getPokemon()
-    }, [])
+    // useEffect(() => {
+    //     const getPokemon = async () => {
+    //       dispatch({type: 'SET_LOADING'})
+    //       const pokemons = await getKanto()
+    //       dispatch({type: 'GET_POKEMONS', payload: pokemons})
+    //     }
+    //     getPokemon()
+    // }, [])
     
     const [state, dispatch] = useReducer(pokedexReducer, initialState)
     return (

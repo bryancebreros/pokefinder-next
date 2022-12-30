@@ -4,7 +4,11 @@ import AlertContext from '../../context/alert/AlertContext'
 import {useNavigate} from 'react-router-dom'
 import {getKanto, getJohto, getHoenn, getSinnoh, getUnova, getKalos, getAlola, getGalar} from '../../context/pokedex/PokedexActions'
 const PokemonSearch = () => {
-    const [active, setActive] = useState(1)
+    // const [active, setActive] = useState(1)
+    // console.log({active});
+    
+    
+    
     // const [appState, changeState] = useState({
     //     activeObject: null,
     //     objects: [{id: 1}, {id: 2}]
@@ -20,9 +24,11 @@ const PokemonSearch = () => {
     //         return 'btn btn-ghost btn-lg'
     //     }
     // }
-    const {pokemons, dispatch}  = useContext(PokedexContext)
+    const {pokemons, region, dispatch}  = useContext(PokedexContext)
+    console.log({region});
+    
     const handleKanto = async () => {
-        setActive(1)
+        dispatch({type: 'SET_REGION', payload: 1})
         dispatch({type: 'CLEAR_POKEMONS'})
         dispatch({type: 'SET_LOADING'})
         const pokemons = await getKanto()
@@ -30,7 +36,8 @@ const PokemonSearch = () => {
         
     }
     const handleJohto = async () => {
-        setActive(2)
+        // setActive(2)
+        dispatch({type: 'SET_REGION', payload: 2})
         dispatch({type: 'CLEAR_POKEMONS'})
         dispatch({type: 'SET_LOADING'})
         const pokemons = await getJohto()
@@ -38,7 +45,7 @@ const PokemonSearch = () => {
         
     }
     const handleHoenn = async () => {
-        setActive(3)
+        dispatch({type: 'SET_REGION', payload: 3})
         dispatch({type: 'CLEAR_POKEMONS'})
         dispatch({type: 'SET_LOADING'})
         const pokemons = await getHoenn()
@@ -46,7 +53,7 @@ const PokemonSearch = () => {
         
     }
     const handleSinnoh = async () => {
-        setActive(4)
+        dispatch({type: 'SET_REGION', payload: 4})
         dispatch({type: 'CLEAR_POKEMONS'})
         dispatch({type: 'SET_LOADING'})
         const pokemons = await getSinnoh()
@@ -55,7 +62,7 @@ const PokemonSearch = () => {
         
     }
     const handleUnova = async () => {
-        setActive(5)
+        dispatch({type: 'SET_REGION', payload: 5})
         dispatch({type: 'CLEAR_POKEMONS'})
         dispatch({type: 'SET_LOADING'})
         const pokemons = await getUnova()
@@ -64,7 +71,7 @@ const PokemonSearch = () => {
         
     }
     const handleKalos = async () => {
-        setActive(6)
+        dispatch({type: 'SET_REGION', payload: 6})
         dispatch({type: 'CLEAR_POKEMONS'})
         dispatch({type: 'SET_LOADING'})
         const pokemons = await getKalos()
@@ -72,15 +79,16 @@ const PokemonSearch = () => {
         
     }
     const handleAlola = async () => {
-        setActive(7)
+        dispatch({type: 'SET_REGION', payload: 7})
         dispatch({type: 'CLEAR_POKEMONS'})
         dispatch({type: 'SET_LOADING'})
+        dispatch({type: 'SET_REGION'})
         const pokemons = await getAlola()
         dispatch({type: 'GET_POKEMONS', payload: pokemons})
         
     }
     const handleGalar = async () => {
-        setActive(8)
+        dispatch({type: 'SET_REGION', payload: 8})
         dispatch({type: 'CLEAR_POKEMONS'})
         dispatch({type: 'SET_LOADING'})
         const pokemons = await getGalar()
@@ -105,42 +113,42 @@ const PokemonSearch = () => {
                     </div> */}
                 {/* })} */}
                 <div>
-                    <button id='1' onClick={handleKanto} type="submit" className={`btn btn-ghost btn-lg ${active === 1 && 'btn-active'}`}>
+                    <button id='1' onClick={handleKanto} type="submit" className={`btn btn-ghost btn-lg ${region === 1 && 'btn-active'}`}>
                         I
                     </button>
                 </div>
                 <div>
-                    <button id='2' onClick={handleJohto} type="submit" className={`btn btn-ghost btn-lg ${active === 2&& 'btn-active'}`}>
+                    <button id='2' onClick={handleJohto} type="submit" className={`btn btn-ghost btn-lg ${region === 2&& 'btn-active'}`}>
                         II
                     </button>
                 </div>
                 <div>
-                    <button id='3' onClick={handleHoenn} type="submit" className={`btn btn-ghost btn-lg ${active === 3 && 'btn-active'}`}>
+                    <button id='3' onClick={handleHoenn} type="submit" className={`btn btn-ghost btn-lg ${region === 3 && 'btn-active'}`}>
                         III
                     </button>
                 </div>
                 <div>
-                    <button id='4' onClick={handleSinnoh} type="submit" className={`btn btn-ghost btn-lg ${active === 4 && 'btn-active'}`}>
+                    <button id='4' onClick={handleSinnoh} type="submit" className={`btn btn-ghost btn-lg ${region === 4 && 'btn-active'}`}>
                         IV
                     </button>
                 </div>
                 <div>
-                    <button id='5' onClick={handleUnova} type="submit" className={`btn btn-ghost btn-lg ${active === 5 && 'btn-active'}`}>
+                    <button id='5' onClick={handleUnova} type="submit" className={`btn btn-ghost btn-lg ${region === 5 && 'btn-active'}`}>
                         V
                     </button>
                 </div>
                 <div>
-                    <button id='6' onClick={handleKalos} type="submit" className={`btn btn-ghost btn-lg ${active === 6 && 'btn-active'}`}>
+                    <button id='6' onClick={handleKalos} type="submit" className={`btn btn-ghost btn-lg ${region === 6 && 'btn-active'}`}>
                         VI
                     </button>
                 </div>
                 <div>
-                    <button id='7' onClick={handleAlola} type="submit" className={`btn btn-ghost btn-lg ${active === 7 && 'btn-active'}`}>
+                    <button id='7' onClick={handleAlola} type="submit" className={`btn btn-ghost btn-lg ${region === 7 && 'btn-active'}`}>
                         VII
                     </button>
                 </div>
                 <div>
-                    <button id='8' onClick={handleGalar} type="submit" className={`btn btn-ghost btn-lg ${active === 8 && 'btn-active'}`}>
+                    <button id='8' onClick={handleGalar} type="submit" className={`btn btn-ghost btn-lg ${region === 8 && 'btn-active'}`}>
                         VIII
                     </button>
                 </div>

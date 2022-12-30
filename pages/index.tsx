@@ -8,11 +8,14 @@ import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
 import PokemonItem from '../components/pokemons/PokemonItem';
 import PokemonSearch from "../components/pokemons/PokemonSearch";
+import { getKanto } from "../context/pokedex/PokedexActions";
 // export async function getServerSideProps(context) {
   
 //     }
-const Home = ({pokemon}) => {    
+const Home = () => {      
   const {pokemons, loading, dispatch} = useContext(PokedexContext)
+  console.log({pokemons});
+  
     return (
         <>
         <Head>
@@ -31,29 +34,8 @@ const Home = ({pokemon}) => {
         </>
     )
     
-  }
+}
 
-  export default Home;
+export default Home;
 
-  export const getStaticProps = async (context) => {
-    try {
-      const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=150`);
-      const {results} = await res.json();
-      const pokemon = results.map((result, idx) => {
-        const paddedIndex = ("00" + (idx + 1)).slice(-3);
-        const image = `https://assets.pokemon.com/assets/csm2/img/pokedex/full/${paddedIndex}.png`;
-        return {
-          ...result, 
-          image
-        }
-      })
-      return {
-        props: {pokemon}
-      }
-    } catch (err) {
-      console.error(err);
-      
-
-    }
-    
-  }
+// GETSTATICPROPS
