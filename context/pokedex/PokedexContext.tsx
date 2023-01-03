@@ -15,19 +15,19 @@ export const PokedexProvider = ({children}: PokedexContextProviderProps) => {
         // pokemon:{},
         // abilities: [],
         loading: false,
-        region: Number,
+        region: 1,
 
     }
     console.log('hii');
     
-    // useEffect(() => {
-    //     const getPokemon = async () => {
-    //       dispatch({type: 'SET_LOADING'})
-    //       const pokemons = await getKanto()
-    //       dispatch({type: 'GET_POKEMONS', payload: pokemons})
-    //     }
-    //     getPokemon()
-    // }, [])
+    useEffect(() => {
+        const getPokemon = async () => {
+          dispatch({type: 'SET_LOADING'})
+          const pokemons = await getKanto()
+          dispatch({type: 'GET_POKEMONS', payload: pokemons})
+        }
+        getPokemon()
+    }, [])
     
     const [state, dispatch] = useReducer(pokedexReducer, initialState)
     return (

@@ -30,7 +30,6 @@ const Home = () => {
             <PokemonItem key={pokemon.url} pokemon={pokemon} />
           ))}
         </div>
-        <Footer />
         </>
     )
     
