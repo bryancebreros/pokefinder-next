@@ -1,24 +1,25 @@
 import {createContext, useReducer, useEffect} from 'react'
 import pokedexReducer from './PokedexReducer'
 import { getKanto } from './PokedexActions'
+import typings from '../../typings'
 
 type PokedexContextProviderProps = {
-    children: React.ReactNode;
+    children: React.ReactNode
+    region: number 
+    dispatch: ({}) => void 
+    pokemons: typings.Pokemon[]
 };
 
-export const PokedexContext = createContext(getKanto);
+export const PokedexContext = createContext<PokedexContextProviderProps>({} as PokedexContextProviderProps);
 
 
 export const PokedexProvider = ({children}: PokedexContextProviderProps) => {
     const initialState = {
         pokemons: [],
-        // pokemon:{},
-        // abilities: [],
         loading: false,
         region: 1,
 
     }
-    console.log('hii');
     
     useEffect(() => {
         const getPokemon = async () => {

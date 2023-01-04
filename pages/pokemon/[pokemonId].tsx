@@ -1,5 +1,3 @@
-import { useState, useContext, useEffect } from "react";
-import PokedexContext from "../../context/pokedex/PokedexContext";
 import { FaAngleLeft, FaHashtag } from "react-icons/fa";
 import Navbar from "../../components/layouts/Navbar"
 import Footer from "../../components/layouts/Footer"
@@ -8,19 +6,9 @@ import TestModal from "../../components/layouts/TestModal";
 import { GetServerSideProps } from "next";
 import Image from "next/image";
 import Head from "next/head";
-const customStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-    },
-};
-const Pokemon = ({singlePokemon}) => {    
-    const { pokemon, loading, dispatch} = useContext(PokedexContext)
-    const colorStat = (baseStat) => {
+import typings from "../../typings"
+const Pokemon = ({singlePokemon}: typings.UnoPokemon) => {    
+    const colorStat = (baseStat: number) => {
         if (baseStat < 51){
           return 'progress-warning'
         } else if (baseStat > 50 && baseStat < 100){
@@ -31,7 +19,6 @@ const Pokemon = ({singlePokemon}) => {
           return 'progress-secondary'
         }
     }
-    const sum = singlePokemon.stats?.reduce((acc: number, o) => acc + parseInt(o.base_stat), 0)    
     return(
         <>
             <Head>
@@ -131,18 +118,6 @@ const Pokemon = ({singlePokemon}) => {
                         </tbody>
                 </table>
                 </div>
-                {/* <div>
-                Pokemon
-                {formas.map((forma) =>{
-                    
-                    return(
-                    <>
-                        <h1>{forma.formName}</h1>
-                        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${forma.formId}.png`} />
-                    </>
-                    )
-                })}
-                </div> */}
             </div>
             <Footer />
         </>

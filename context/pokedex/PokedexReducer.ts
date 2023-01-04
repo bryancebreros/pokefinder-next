@@ -1,6 +1,4 @@
 const pokedexReducer = (state, action) => {
-    console.log({st: state, ac: action});
-    //state.region
     
     switch(action.type) {
         case 'GET_POKEMONS':
