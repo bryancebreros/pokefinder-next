@@ -20,11 +20,6 @@ const Navbar = () => {
           </div>
       </nav>
     )
-  }
-//   Navbar.defaultProps = {
-//       title: 'PokéFinder'
-//   }
-//   Navbar.propTypes = {
-//       title: PropTypes.string
-//   }
-  export default Navbar;
+}
+
+export default Navbar;
