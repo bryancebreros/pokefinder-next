@@ -7,8 +7,8 @@ import { useRouter } from 'next/router'
 const PokemonSearch = () => {
     const router = useRouter();
     const [text, setText] = useState('');
-    const {region, dispatch}  = useContext(PokedexContext);
-    
+    const {state, dispatch}  = useContext(PokedexContext);
+    const region = state.region;
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setText(e.target.value);
     const handleSubmit = async (e:  React.SyntheticEvent<EventTarget>) => {
         e.preventDefault();
@@ -64,7 +64,6 @@ const PokemonSearch = () => {
         dispatch({type: 'SET_REGION', payload: 7});
         dispatch({type: 'CLEAR_POKEMONS'});
         dispatch({type: 'SET_LOADING'});
-        dispatch({type: 'SET_REGION'});
         const pokemons = await getAlola();
         dispatch({type: 'GET_POKEMONS', payload: pokemons});
     };

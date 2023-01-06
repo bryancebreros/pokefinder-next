@@ -43,6 +43,7 @@ export interface State {
 }
 
 export interface Action {
-    payload: Array[Pokemon]
+    payload?: Array[Pokemon]
     type: string
 }
+

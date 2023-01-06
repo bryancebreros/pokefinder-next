@@ -7,7 +7,8 @@ import PokemonSearch from "../components/pokemons/PokemonSearch";
 
 
 const Home = () => {      
-  const {pokemons} = useContext(PokedexContext)  
+  const {state} = useContext(PokedexContext)  
+  
     return (
         <>
           <Head>
@@ -18,7 +19,7 @@ const Home = () => {
           <Navbar />
           <PokemonSearch />
           <div className='grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 mb-7 mx-7'>
-            {pokemons.map((pokemon) => (
+            {state.pokemons?.map((pokemon) => (
               <PokemonItem key={pokemon.id} pokemon={pokemon} />
             ))}
           </div>

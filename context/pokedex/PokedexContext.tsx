@@ -1,27 +1,31 @@
-import {createContext, useReducer, useEffect} from 'react'
+import React, {createContext, useReducer, useEffect} from 'react'
 import pokedexReducer from './PokedexReducer'
 import { getKanto } from './PokedexActions'
-import typings from '../../typings'
+import {Pokemon} from '../../typings'
+import { PokedexActions } from './PokedexReducer'
 
-type PokedexContextProviderProps = {
-    children: React.ReactNode
-    region: number 
-    dispatch: ({}) => void 
-    pokemons: typings.Pokemon[]
-};
+type initialStateType = {
+    pokemons: Pokemon[]
+    loading: boolean
+    region: number
+}
+const initialState = {
+    pokemons: [],
+    loading: false,
+    region: 1,
+}
 
-export const PokedexContext = createContext<PokedexContextProviderProps>({} as PokedexContextProviderProps);
+interface props {
+    children: JSX.Element | JSX.Element[]
+}
 
+export const PokedexContext = createContext<{state: initialStateType; dispatch: React.Dispatch<PokedexActions>;}>({state: initialState, dispatch: () => null});
 
-export const PokedexProvider = ({children}: PokedexContextProviderProps) => {
-    const initialState = {
-        pokemons: [],
-        loading: false,
-        region: 1,
-
-    }
+export const PokedexProvider = ({children}: props) => {
     
     useEffect(() => {
+        console.log({PokedexContext});
+        
         const getPokemon = async () => {
           dispatch({type: 'SET_LOADING'})
           const pokemons = await getKanto()
@@ -34,8 +38,7 @@ export const PokedexProvider = ({children}: PokedexContextProviderProps) => {
     return (
         <PokedexContext.Provider
             value={
-                {...state, 
-                dispatch}
+                {state, dispatch}
             }
         >
             {children}

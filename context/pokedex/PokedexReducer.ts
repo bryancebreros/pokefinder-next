@@ -1,4 +1,11 @@
-import typings from "../../typings"
+import typings, {Pokemon} from "../../typings"
+
+export type PokedexActions = 
+    | {type: 'GET_POKEMONS' , payload: Pokemon[]}
+    | {type: 'SET_LOADING'}
+    | {type: 'CLEAR_POKEMONS'}
+    | {type: 'SET_REGION' , payload: number}
+
 const pokedexReducer = (state: typings.State, action: typings.Action) => {
     switch(action.type) {
         case 'GET_POKEMONS':
@@ -16,19 +23,6 @@ const pokedexReducer = (state: typings.State, action: typings.Action) => {
             return{
                 ...state,
                 pokemons: [],
-            }
-        case 'SHOW_POKEMON':
-            return{
-                ...state,
-                pokemon: action.payload.pokemon,
-                loading: false,
-
-            }
-        case 'GET_ABILITIES':
-            return{
-                ...state,
-                abilities: [state, action.payload],
-                loading: false,
             }
         case 'SET_REGION':
             return{
