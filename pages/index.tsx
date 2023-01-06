@@ -7,9 +7,7 @@ import PokemonSearch from "../components/pokemons/PokemonSearch";
 
 
 const Home = () => {      
-  const {pokemons} = useContext(PokedexContext)
-  console.log(pokemons);
-  
+  const {pokemons} = useContext(PokedexContext)  
     return (
         <>
           <Head>

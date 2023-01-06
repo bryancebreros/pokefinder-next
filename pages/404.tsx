@@ -1,6 +1,5 @@
 import Navbar from '../components/layouts/Navbar';
 import Footer from '../components/layouts/Footer';
-import {FaHome} from 'react-icons/fa';
 import Link from 'next/link';
 import Image from 'next/image';
 

@@ -22,7 +22,7 @@ const Pokemon = ({singlePokemon}: typings.UnoPokemon) => {
     return(
         <>
             <Head>
-                <title>{singlePokemon.name}</title>
+                <title>{singlePokemon.name.toUpperCase()}</title>
             </Head>
             <Navbar />
             <div className='w-full mx-auto xl:w-11/12 md:mb-8'>

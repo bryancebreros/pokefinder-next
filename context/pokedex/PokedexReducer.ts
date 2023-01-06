@@ -1,5 +1,5 @@
-const pokedexReducer = (state, action) => {
-    
+import typings from "../../typings"
+const pokedexReducer = (state: typings.State, action: typings.Action) => {
     switch(action.type) {
         case 'GET_POKEMONS':
             return{
@@ -27,7 +27,7 @@ const pokedexReducer = (state, action) => {
         case 'GET_ABILITIES':
             return{
                 ...state,
-                abilities: [state.abilities, action.payload],
+                abilities: [state, action.payload],
                 loading: false,
             }
         case 'SET_REGION':

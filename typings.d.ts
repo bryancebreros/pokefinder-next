@@ -35,3 +35,14 @@ export interface Pokemon {
 export interface UnoPokemon{
     singlePokemon: Pokemon
 }
+
+export interface State {
+    loading: boolean
+    pokemons: Array[Pokemon]
+    region: number
+}
+
+export interface Action {
+    payload: Array[Pokemon]
+    type: string
+}
