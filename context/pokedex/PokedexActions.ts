@@ -24,7 +24,7 @@ export const getJohto = async () => {
         limit: '100'
     })
     const response = await pokedex.get(`https://pokeapi.co/api/v2/pokemon-species?${params}`)
-    return response.data.results
+    return response.data.s
 }
 export const getHoenn = async () => {
     const params = new URLSearchParams({
