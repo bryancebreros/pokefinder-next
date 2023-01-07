@@ -74,7 +74,7 @@ const Pokemon = ({singlePokemon}: typings.UnoPokemon) => {
                         <tr>
                             <th className="lg:rounded-tl-lg py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap dark:text-white">BASE STATS</th>
                             <th></th>
-                            <th className="lg:w-screen lg:rounded-tr-lg"></th>
+                            <th className="w-screen lg:rounded-tr-lg"></th>
                         </tr>
                         
                     </thead>
@@ -82,38 +82,38 @@ const Pokemon = ({singlePokemon}: typings.UnoPokemon) => {
                         <tr className="text-white-900 whitespace-nowrap dark:text-white border-b bg-slate-700 border-white-700">
                             <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">HP:</th>
                             <td>{singlePokemon.stats?.[0].base_stat}</td>
-                            <td className="px-2"><progress className={`progress ${colorStat(singlePokemon.stats?.[0].base_stat)} w-20 lg:w-full`} value={singlePokemon.stats?.[0].base_stat} max="255"></progress></td>
+                            <td className="px-2"><progress className={`progress ${colorStat(singlePokemon.stats?.[0].base_stat)} w-full`} value={singlePokemon.stats?.[0].base_stat} max="255"></progress></td>
                             
                         </tr>
                         <tr className="text-white-900 whitespace-nowrap dark:text-white border-b bg-slate-700 border-white-700">
                             <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">Attack:</th>
                             <td>{singlePokemon.stats?.[1].base_stat}</td>
-                            <td className="px-2"><progress className={`progress ${colorStat(singlePokemon.stats?.[1].base_stat)} w-20 lg:w-full`} value={singlePokemon.stats?.[1].base_stat} max="255"></progress></td>
+                            <td className="px-2"><progress className={`progress ${colorStat(singlePokemon.stats?.[1].base_stat)} w-full`} value={singlePokemon.stats?.[1].base_stat} max="255"></progress></td>
                             
                         </tr>
                         <tr className="text-white-900 whitespace-nowrap dark:text-white border-b bg-slate-700 border-white-700">
                             <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">Defense:</th>
                             <td>{singlePokemon.stats?.[2].base_stat}</td>
-                            <td className="px-2"><progress className={`progress ${colorStat(singlePokemon.stats?.[2].base_stat)} w-20 lg:w-full`} value={singlePokemon.stats?.[2].base_stat} max="255"></progress></td>
+                            <td className="px-2"><progress className={`progress ${colorStat(singlePokemon.stats?.[2].base_stat)} w-full`} value={singlePokemon.stats?.[2].base_stat} max="255"></progress></td>
                             
                         </tr>
                         <tr className="text-white-900 whitespace-nowrap dark:text-white border-b bg-slate-700 border-white-700">
                             <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">Sp. Attack:</th>
                             <td>{singlePokemon.stats?.[3].base_stat}</td>
-                            <td className="px-2"><progress className={`progress ${colorStat(singlePokemon.stats?.[3].base_stat)} w-20 lg:w-full`} value={singlePokemon.stats?.[3].base_stat} max="255"></progress></td>
+                            <td className="px-2"><progress className={`progress ${colorStat(singlePokemon.stats?.[3].base_stat)} w-full`} value={singlePokemon.stats?.[3].base_stat} max="255"></progress></td>
                             
                         </tr>
                         <tr className="text-white-900 whitespace-nowrap dark:text-white border-b bg-slate-700 border-white-700">
                             <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">Sp. Defense:</th>
                             <td>{singlePokemon.stats?.[4].base_stat}</td>
-                            <td className="px-2"><progress className={`progress ${colorStat(singlePokemon.stats?.[4].base_stat)} w-20 lg:w-full`} value={singlePokemon.stats?.[4].base_stat} max="255"></progress></td>
+                            <td className="px-2"><progress className={`progress ${colorStat(singlePokemon.stats?.[4].base_stat)} w-full`} value={singlePokemon.stats?.[4].base_stat} max="255"></progress></td>
                             
                         </tr>
                         <tr className="bg-slate-700 bg--600 text-white-900 whitespace-nowrap dark:text-white border-white-700 rounded-b-lg">
                             
                             <th className="lg:rounded-bl-lg py-4 px-6 font-medium whitespace-nowrap dark:text-white">Speed:</th>
                             <td >{singlePokemon.stats?.[5].base_stat}</td>
-                            <td className="px-2 lg:rounded-br-lg"><progress className={` progress ${colorStat(singlePokemon.stats?.[5].base_stat)} w-20 lg:w-full`} value={singlePokemon.stats?.[5].base_stat} max="255"></progress></td>
+                            <td className="px-2 lg:rounded-br-lg"><progress className={` progress ${colorStat(singlePokemon.stats?.[5].base_stat)} w-full`} value={singlePokemon.stats?.[5].base_stat} max="255"></progress></td>
                         </tr>
                         </tbody>
                 </table>
