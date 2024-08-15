@@ -24,7 +24,7 @@ export const getJohto = async () => {
         limit: '100'
     })
     const response = await pokedex.get(`https://pokeapi.co/api/v2/pokemon-species?${params}`)
-    return response.data.s
+    return response.data.results
 }
 export const getHoenn = async () => {
     const params = new URLSearchParams({
@@ -70,6 +70,14 @@ export const getGalar = async () => {
     const params = new URLSearchParams({
         offset: '809',
         limit: '89'
+    })
+    const response = await pokedex.get(`https://pokeapi.co/api/v2/pokemon-species?${params}`)
+    return response.data.results
+}
+export const getPaldea = async () => {
+    const params = new URLSearchParams({
+        offset: '906',
+        limit: '119'
     })
     const response = await pokedex.get(`https://pokeapi.co/api/v2/pokemon-species?${params}`)
     return response.data.results

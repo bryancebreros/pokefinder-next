@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react'
 import PokedexContext from '../../context/pokedex/PokedexContext'
-import {getKanto, getJohto, getHoenn, getSinnoh, getUnova, getKalos, getAlola, getGalar} from '../../context/pokedex/PokedexActions'
+import {getKanto, getJohto, getHoenn, getSinnoh, getUnova, getKalos, getAlola, getGalar, getPaldea} from '../../context/pokedex/PokedexActions'
 import { useRouter } from 'next/router'
 
 
@@ -74,6 +74,13 @@ const PokemonSearch = () => {
         const pokemons = await getGalar();
         dispatch({type: 'GET_POKEMONS', payload: pokemons});
     };
+    const handlePaldea = async () => {
+        dispatch({type: 'SET_REGION', payload: 9});
+        dispatch({type: 'CLEAR_POKEMONS'});
+        dispatch({type: 'SET_LOADING'});
+        const pokemons = await getPaldea();
+        dispatch({type: 'GET_POKEMONS', payload: pokemons});
+    };
   return (
     <div className=" grid lg:grid-cols-2 place-items-center  w-full mb-3">
         <div className='p-2 lg:w-auto '>
@@ -132,6 +139,11 @@ const PokemonSearch = () => {
                     <li className='p-1'>
                         <button id='8' onClick={handleGalar} type="submit" className={`btn btn-ghost btn-lg ${region === 8 && 'btn-active'}`}>
                             Galar
+                        </button>
+                    </li>
+                    <li className='p-1'>
+                        <button id='9' onClick={handlePaldea} type="submit" className={`btn btn-ghost btn-lg ${region === 9 && 'btn-active'}`}>
+                            Paldea
                         </button>
                     </li>
             </ul>
